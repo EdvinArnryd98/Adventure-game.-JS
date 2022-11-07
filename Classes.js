@@ -7,10 +7,12 @@ class Item {
 }
 
 class Player {
-  constructor(name, health, damage, row, col, inventory, potions, magic, level, exp) {
+  constructor(name, currentHealth, maxHealth, baseDamage, weapon, row, col, inventory, potions, magic, level, exp) {
     this.name = name
-    this.health = health
-    this.damage = damage
+    this.currentHealth = currentHealth
+    this.maxHealth = maxHealth
+    this.baseDamage = baseDamage
+    this.weapon = weapon
     this.row = row
     this.col = col
     this.inventory = inventory

@@ -1,5 +1,5 @@
 let playerName = localStorage.getItem("textvalue")
-let player = new Player(playerName, 30, 2, 0, 0, [], 0, 0, 1, 0)
+let player = new Player(playerName, 30, 30, 2, 0, 0, 0, [], 0, 0, 1, 0)
 
 
 let knife = new Item("Knife", "A sharp knife that can cut", 2)

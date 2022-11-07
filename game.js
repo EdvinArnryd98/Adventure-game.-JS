@@ -1,5 +1,5 @@
 document.getElementById('playerName').innerHTML = player.name
-document.getElementById('playerHealth').innerHTML = player.health
+document.getElementById('playerHealth').innerHTML = player.currentHealth
 document.getElementById('playerLevel').innerHTML = player.level
 
 var gameMenu = document.getElementById('buttonsActions')
@@ -123,12 +123,12 @@ function retreat() {
 // BATTLE
 function battle() {
   if (enemy.health > 0) {
-    player.health -= enemy.damage
-    if (player.health <= 0) {
+    player.currentHealth -= enemy.damage
+    if (player.currentHealth <= 0) {
       activateDeathMenu()
     }
     textBox.innerHTML += enemy.name + " Attack you with " + enemy.damage + " damage points!" + '<br>'
-    document.getElementById('playerHealth').innerHTML = player.health
+    document.getElementById('playerHealth').innerHTML = player.currentHealth
   }
   else {
     textBox.innerHTML += " Congratulations! You defeated " + enemy.name + "!" + '<br>'
@@ -141,6 +141,9 @@ function battle() {
     if (player.xp >= player.level * 15) {
       player.xp = 0
       player.level += 1
+      player.baseDamage += 1
+      player.maxHealth += 5
+      player.currentHealth = player.maxHealth
       activateLevelUp()
     }
   }
@@ -154,7 +157,7 @@ function useAttack() {
 
 function useHeal() {
   if (player.potions >= 1) {
-    player.health += 8
+    player.currentHealth += 8
     player.potions -= 1
     textBox.innerHTML += "You heal 8 health points!" + '<br>'
   }
