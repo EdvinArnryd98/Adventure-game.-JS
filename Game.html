@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Game</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="column left" style="background-color:#aaa;">
+      <h2>Room</h2>
+      <p id="roomDisplay"></p>
+      <p id="roomDescription"></p>
+    </div>
+    <div class="column middle" style="background-color:#bbb;">
+      <h1>Adventure</h1>
+      <div
+        style="height:400px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif; display: flex; height: 50%; overflow:auto;">
+        <span id="textBox" style="display: inline-block; align-self: flex-end; text-align: initial;"></span>
+      </div>
+      <div id="buttonsActions" class="buttonsActions">
+        <div class="directions">
+          <div class="arrow arrowleft" id="left" onclick="movePlayer(left)"></div>
+          <div class="arrow arrowup" id="up" onclick="movePlayer(up)"></div>
+          <div class="arrow arrowright" id="right" onclick="movePlayer(right)"></div>
+          <div class="arrow arrowdown" id="down" onclick="movePlayer(down)"></div>
+        </div>
+        <div class="actionBar">
+          <div class="actionButton loot" id="loot" onclick="playerLoot()">L</div>
+          <div class="actionButton view" id="view" onclick="playerView()">V</div>
+          <div class="actionButton" id="button" onclick="">A</div>
+          <div class="actionButton" id="button" onclick="">R</div>
+        </div>
+      </div>
+      <div id="enterBattleMenu" class="enterBattleMenu""">
+        <p>Do you want to enter battle?</p>
+        <button onclick="startBattle()">Yes</button>
+        <button onclick="retreat()">No</button>
+      </div>
+      <div id="battleMenu" class="battleMenu">
+        <div class="fightButton attackButton" id="attackButton" onclick="useAttack()">A</div>
+        <div class="fightButton healButton" id="healButton" onclick="useHeal()">H</div>
+        <div class="fightButton magicButton" id="magicButton" onclick="useMagic()">M</div>
+      </div>
+      <div id="winMenu" class="winMenu">
+        <p id="winTitle" class="winTitle">You Beat the enemy!</p>
+        <div>Exp earned:
+          <p id="expEarned" class="expEarned"></p>
+        </div>
+        <div id="continue" class="actionButton continue" onclick="activateGameMenu()">Continue</div>
+      </div>
+      <div id="levelUpMenu" class="levelUpMenu">
+        <p>
+          You leveled up!
+        <div id="continue" class="actionButton continue" onclick="activateGameMenu()">Continue</div>
+        </p>
+      </div>
+      <div id="deathMenu" class="deathMenu">
+        <p>YOU DIED</p>
+      </div>
+    </div>
+    <div class="column right" style="background-color:#ccc;">
+      <h2>Player</h2>
+      <p id="playerName"></p>
+      <p id="playerHealth"></p>
+      <p id="playerLevel"></p>
+      <div id="inventory"></div>
+    </div>
+  </div>
+  <script src="Classes.js"></script>
+  <script src="Initialize.js"></script>
+  <script src="game.js"></script>
+</body>
+
+</html>
